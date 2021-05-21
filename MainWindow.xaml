@@ -1,0 +1,40 @@
+﻿<Window x:Class="Vokabeltrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vokabeltrainer"
+        mc:Ignorable="d"
+        Title="Vokabeltrainer v1.0" Height="300" Width="400">
+    <DockPanel Margin="15" LastChildFill="False">
+        <Grid DockPanel.Dock="Top" HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button x:Name="btnLoad" Grid.Row="0" Content="Vokabeln laden" Margin="0,0,0,10" Padding="10,0" Click="btnLoad_Click"/>
+            <Button x:Name="btnStart" Grid.Row="1" Content="Start" Margin="0,0,0,10" Padding="10,0" Click="btnStart_Click"/>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Content="Abgefragte Vokabel:" Grid.Row="0" Grid.Column="0" Padding="0,0,0,10"/>
+            <TextBox x:Name="txtVokabel" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+            <Label Content="Eingabe Übersetzung:" Grid.Row="1" Grid.Column="0" Padding="0,0,0,10"/>
+            <TextBox x:Name="txtEingabe" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+            <Button x:Name="btnShow" Content="Lösung anzeigen" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,10" Padding="10,0" Width="120" Click="btnShow_Click"/>
+            <Label Content="Lösung:" Grid.Row="3" Grid.Column="0" Padding="0,0,0,10"/>
+            <TextBox x:Name="txtLoesung" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
+            <Button x:Name="btnNext" Content="Nächste Vokabel" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Padding="10,0" Width="120" Click="btnNext_Click"/>
+        </Grid>
+    </DockPanel>
+</Window>
