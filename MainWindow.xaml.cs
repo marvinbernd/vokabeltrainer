@@ -37,6 +37,9 @@ namespace Vokabeltrainer
             new Vokabel("schreiben", "write");
 
             MessageBox.Show("Vokabeln geladen!");
+
+            btnLoad.IsEnabled = false;
+            btnStart.IsEnabled = true;
             btnStart.Focus();
         }
 
@@ -45,6 +48,11 @@ namespace Vokabeltrainer
             meinTrainer.PruefVokabeln = Vokabel.AlleVokabeln;
             meinTrainer.StarteDurchlauf();
             txtVokabel.Text = meinTrainer.GetNaechsteVokabel().Deutsch;
+
+            btnStart.IsEnabled = false;
+            txtEingabe.IsEnabled = true;
+            btnShow.IsEnabled = true;
+            btnNext.IsEnabled = true;
             txtEingabe.Focus();
         }
 
