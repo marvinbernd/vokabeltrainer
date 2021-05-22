@@ -60,7 +60,7 @@ namespace Vokabeltrainer
         {
             txtLoesung.Text = meinTrainer.AktuelleVokabel.Fremdsprache;
 
-            txtEingabe.Background = (txtEingabe.Text == meinTrainer.AktuelleVokabel.Fremdsprache) 
+            txtEingabe.Background = (txtEingabe.Text.ToLower() == meinTrainer.AktuelleVokabel.Fremdsprache.ToLower()) 
                 ? Brushes.Green : Brushes.Red;
 
             btnNext.Focus();
