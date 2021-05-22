@@ -64,6 +64,7 @@ namespace Vokabeltrainer
                 ? Brushes.Green : Brushes.Red;
 
             btnNext.Focus();
+            btnSound.IsEnabled = true;
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -73,6 +74,7 @@ namespace Vokabeltrainer
             txtLoesung.Clear();
             txtEingabe.Background = SystemColors.WindowBrush;
             txtEingabe.Focus();
+            btnSound.IsEnabled = false;
         }
 
         private void txtEingabe_KeyDown(object sender, KeyEventArgs e)
@@ -82,6 +84,12 @@ namespace Vokabeltrainer
                 e.Handled = true;
                 btnShow.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
+        }
+
+        private void btnSound_Click(object sender, RoutedEventArgs e)
+        {
+            meinTrainer.AktuelleVokabel.SpieleSound();
+            btnNext.Focus();
         }
     }
 }

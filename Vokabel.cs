@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Vokabeltrainer
 {
@@ -11,6 +12,18 @@ namespace Vokabeltrainer
         private string _deutsch;
         private string _fremdsprache;
         private static List<Vokabel> _alleVokabeln = new List<Vokabel>();
+
+        public Vokabel()
+        {
+            _alleVokabeln.Add(this);
+        }
+
+        public Vokabel(string deutsch, string fremdsprache)
+        {
+            _deutsch = deutsch;
+            _fremdsprache = fremdsprache;
+            _alleVokabeln.Add(this);
+        }
 
         public string Deutsch
         {
@@ -37,18 +50,10 @@ namespace Vokabeltrainer
             get { return _alleVokabeln; }
         }
 
-        public Vokabel()
+        public void SpieleSound()
         {
-            _alleVokabeln.Add(this);
+            SoundPlayer player = new SoundPlayer(@"wav\" + _fremdsprache + ".wav");
+            player.Play();
         }
-
-        public Vokabel(string deutsch, string fremdsprache)
-        {
-            _deutsch = deutsch;
-            _fremdsprache = fremdsprache;
-            _alleVokabeln.Add(this);
-        }
-
-
     }
 }
