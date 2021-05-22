@@ -25,6 +25,7 @@ namespace Vokabeltrainer
         public MainWindow()
         {
           InitializeComponent();
+          btnLoad.Focus();
         }
         
         private void btnLoad_Click(object sender, RoutedEventArgs e)
@@ -36,6 +37,7 @@ namespace Vokabeltrainer
             new Vokabel("schreiben", "write");
 
             MessageBox.Show("Vokabeln geladen!");
+            btnStart.Focus();
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
@@ -43,11 +45,17 @@ namespace Vokabeltrainer
             meinTrainer.PruefVokabeln = Vokabel.AlleVokabeln;
             meinTrainer.StarteDurchlauf();
             txtVokabel.Text = meinTrainer.GetNaechsteVokabel().Deutsch;
+            txtEingabe.Focus();
         }
 
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
             txtLoesung.Text = meinTrainer.AktuelleVokabel.Fremdsprache;
+
+            txtEingabe.Background = (txtEingabe.Text == meinTrainer.AktuelleVokabel.Fremdsprache) 
+                ? Brushes.Green : Brushes.Red;
+
+            btnNext.Focus();
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
@@ -55,6 +63,17 @@ namespace Vokabeltrainer
             txtVokabel.Text = meinTrainer.GetNaechsteVokabel().Deutsch;
             txtEingabe.Clear();
             txtLoesung.Clear();
+            txtEingabe.Background = SystemColors.WindowBrush;
+            txtEingabe.Focus();
+        }
+
+        private void txtEingabe_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
+                btnShow.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }
         }
     }
 }

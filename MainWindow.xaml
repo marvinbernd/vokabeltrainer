@@ -30,7 +30,7 @@
             <Label Content="Abgefragte Vokabel:" Grid.Row="0" Grid.Column="0" Padding="0,0,0,10"/>
             <TextBox x:Name="txtVokabel" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
             <Label Content="Eingabe Übersetzung:" Grid.Row="1" Grid.Column="0" Padding="0,0,0,10"/>
-            <TextBox x:Name="txtEingabe" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+            <TextBox x:Name="txtEingabe" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" KeyDown="txtEingabe_KeyDown"/>
             <Button x:Name="btnShow" Content="Lösung anzeigen" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,10" Padding="10,0" Width="120" Click="btnShow_Click"/>
             <Label Content="Lösung:" Grid.Row="3" Grid.Column="0" Padding="0,0,0,10"/>
             <TextBox x:Name="txtLoesung" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
